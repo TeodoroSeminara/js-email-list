@@ -6,8 +6,8 @@ randomMail();
 
 btnGenerate.addEventListener("click",
     function () {
-        randomMail();
         insertEmail.innerHTML = "";
+        randomMail();
 
     }
 );
@@ -18,7 +18,12 @@ function randomMail() {
     for (let i = 0; i < 10; i++) {
         axios.get(generateEmail).then(response => {
             // let result = response.data.response;
-            insertEmail.innerHTML += `<li class="list-group-item">${response.data.response}</li>`;
+            insertEmail.innerHTML += `<li>${response.data.response}</li>`;
+            // Esempio con appendchild
+            //  const email = res.data.response;
+            // const li = document.createElement("li");
+            // li.textContent = email;
+            // insertEmail.appendChild(li);
         })
     }
 
